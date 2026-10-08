@@ -39,6 +39,7 @@ AdamW with PyTorch's defaults, the learning rate decayed once an epoch. One step
 checked against the PyTorch recipe on the same batch and noise, gives every loss
 within 2.5e-6 and the gradients' global norm within 0.05%. On an M2 Max it runs at
 about 1.4 s a step at batch 8, against about 2 s for PyTorch on the same Mac's GPU.
+The checks behind these figures are in [`parity/`](parity/README.md).
 
 1. **A checkpoint with its discriminator.** The Hub's voices have none. Make one with
    finetune-hf-vits's converter (it needs PyTorch):

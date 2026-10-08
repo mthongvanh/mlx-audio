@@ -2,6 +2,12 @@
 
 This file acknowledges the original authors and contributors of models ported to mlx-audio.
 
+## MMS-TTS / VITS (Text-to-Speech)
+
+- **Original**: [VITS](https://github.com/jaywalnut310/vits) by Jaehyeon Kim, Jungil Kong and Juhee Son (MIT); [MMS](https://github.com/facebookresearch/fairseq/tree/main/examples/mms) by Meta AI, weights under CC-BY-NC 4.0
+- **Ported from**: transformers' [`modeling_vits.py`](https://github.com/huggingface/transformers/tree/main/src/transformers/models/vits) (Apache-2.0); fine-tuning from [ylacombe/finetune-hf-vits](https://github.com/ylacombe/finetune-hf-vits) (MIT)
+- **MLX Port**: Michael Thongvanh
+
 ## MiniMax Music 3 (Song Generation)
 
 - **Original**: [MiniMaxAI/MiniMax-Music3](https://huggingface.co/MiniMaxAI/MiniMax-Music3)

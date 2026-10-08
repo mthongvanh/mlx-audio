@@ -14,6 +14,7 @@ tolerances sit 10 to 40 times above what an M2 Max measured.
 | `parity_train.py` | spectrograms, alignment, forward outputs, every loss, gradients, one AdamW step | finetune-hf-vits, dropout off, same noise | losses within 2.5e-6, gradient norms 0.05% |
 | `kl_dist.py` | the KL loss's spread over 30 training-mode passes | finetune-hf-vits, dropout and layer drop on | (prints only) |
 | `asr_check.py` | character error of the voice, read back by MMS's Tai Dam recogniser | `facebook/mms-1b-all`, `blt` adapter | 1.8% |
+| `export_fixtures.py` | (writes) inputs and outputs at each stage of speaking, and the tokenizer's ids | — | for another port to check against |
 
 ## Speaking
 
@@ -22,6 +23,18 @@ In mlx-audio's own environment, with PyTorch added:
 ```sh
 pip install torch jiwer soundfile
 python mlx_audio/tts/models/vits/parity/parity_infer.py
+```
+
+## Another port
+
+`export_fixtures.py` saves this port's inputs and outputs at each stage (tokens, text
+encoder, durations with and without noise, the flow, the decoder, the whole model, a
+padded batch) as safetensors, with the tokenizer's ids for a few texts as JSON. Each
+stage gets its inputs from this port, so a mismatch shows where it starts. mlx-audio-swift's
+`Tests/VitsTests.swift` reads them.
+
+```sh
+python mlx_audio/tts/models/vits/parity/export_fixtures.py .parity-work/fixtures
 ```
 
 ## Training

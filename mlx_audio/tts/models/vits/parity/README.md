@@ -15,6 +15,7 @@ tolerances sit 10 to 40 times above what an M2 Max measured.
 | `kl_dist.py` | the KL loss's spread over 30 training-mode passes | finetune-hf-vits, dropout and layer drop on | (prints only) |
 | `asr_check.py` | character error of the voice, read back by MMS's Tai Dam recogniser | `facebook/mms-1b-all`, `blt` adapter | 1.8% |
 | `export_fixtures.py` | (writes) inputs and outputs at each stage of speaking, and the tokenizer's ids | — | for another port to check against |
+| `export_train_fixtures.py` | (writes) one training step: batch, noise, forward pass, losses, gradient norms per parameter, the audio's gradients, some weights after the step | — | for another port's trainer |
 
 ## Speaking
 
